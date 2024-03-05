@@ -86,6 +86,35 @@ app.get("/books/:id", async (request, response) => {
 
 
 
+// Route to Update a Book
+app.put("/books/:id", async (request, response) => {
+  try {
+      const { id } = request.params;
+      const updates = request.body;
+
+      // Validate if any update fields are provided
+      if (Object.keys(updates).length === 0) {
+          return response.status(400).send({ message: "No update data provided" });
+      }
+
+      const updatedBook = await Book.findByIdAndUpdate(id, updates, { new: true });
+
+      if (!updatedBook) {
+          return response.status(404).send({ message: "Book not found" });
+      }
+
+      return response.status(200).send(updatedBook);
+  } catch (error) {
+      console.log(error.message);
+      response.status(500).send({ message: error.message });
+  }
+});
+
+
+
+
+
+
 mongoose
   .connect(mongoDBURL)
   .then(() => {
