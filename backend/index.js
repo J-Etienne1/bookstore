@@ -5,6 +5,7 @@ import { Book } from "./models/bookModel.js";
 
 const app = express();
 
+
 // Middlewear for parsing request body
 app.use(express.json());
 
@@ -12,6 +13,10 @@ app.get("/", (request, response) => {
   console.log(request);
   return response.status(234).send("It works");
 });
+
+
+
+
 
 // Route for Saving a new Book
 app.post("/books", async (request, response) => {
@@ -37,6 +42,9 @@ app.post("/books", async (request, response) => {
   }
 });
 
+
+
+
 // Route for getting all books from MongoDB
 app.get("/books", async (request, response) => {
   try {
@@ -51,6 +59,9 @@ app.get("/books", async (request, response) => {
   }
 });
 
+
+
+
 // Route to get an individual book by ID from MongoDB
 app.get("/books/:id", async (request, response) => {
   try {
@@ -64,6 +75,10 @@ app.get("/books/:id", async (request, response) => {
     response.status(500).send({ message: error.message });
   }
 });
+
+
+
+
 
 // Route to Update a Book
 app.put("/books/:id", async (request, response) => {
@@ -90,6 +105,10 @@ app.put("/books/:id", async (request, response) => {
     response.status(500).send({ message: error.message });
   }
 });
+
+
+
+
 
 mongoose
   .connect(mongoDBURL)
