@@ -7,6 +7,7 @@ import { Home } from "./pages/Home";
 import { ShowBooks } from "./pages/ShowBooks";
 
 export const App = () => {
+  return(
   <Routes>
     <Route path="/" element={ <Home /> } />
     <Route path="/books/create" element={ <CreateBooks /> } />
@@ -14,6 +15,7 @@ export const App = () => {
     <Route path="/books/edit/:id" element={ <EditBooks /> } />
     <Route path="/books/delete/:id" element={ <DeleteBooks /> } />
   </Routes>
+  );
 };
 
 export default App;
