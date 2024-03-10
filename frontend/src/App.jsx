@@ -1,7 +1,14 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 export const App = () => {
-  return <div className="bg-red-400 text-white">App</div>;
+  <Routes>
+    <Route path="" element={} />
+    <Route path="" element={} />
+    <Route path="" element={} />
+    <Route path="" element={} />
+    <Route path="" element={} />
+  </Routes>
 };
 
 export default App;
