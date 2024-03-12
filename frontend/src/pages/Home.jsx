@@ -9,13 +9,14 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     setLoading(true);
     axios
       .get("http://localhost:5555/books")
       .then((response) => {
         setBooks(response.data.data);
+        console.log(response.data.data)
         setLoading(false);
       })
       .catch((error) => {
@@ -23,7 +24,7 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
-  
+
   return (
     <div className="p-4">
       <div className="flex justify-between items-center">
@@ -50,7 +51,7 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {books.map((book, index) => {
+            {books.map((book, index) => (
               <tr key={book.id} className="h-8">
                 <td className="border border-slate-700 rounded-md text-center">
                   {index + 1}
@@ -66,19 +67,19 @@ const Home = () => {
                 </td>
                 <td className="border border-slate-700 rounded-md text-center">
                   <div className="flex justify-center gap-x-4">
-                    <Link to={"/books/details/${book.id}"}>
+                    <Link to={`/books/details/${book.id}`}>
                       <BsInfoCircle className="text-2xl text-green-800" />
                     </Link>
-                    <Link to={"/books/edit/${book.id}"}>
-                      <BsInfoCircle className="text-2xl text-yellow-800" />
+                    <Link to={`/books/edit/${book.id}`}>
+                      <AiOutlineEdit className="text-2xl text-yellow-800" />
                     </Link>
-                    <Link to={"/books/delete/${book.id}"}>
-                      <BsInfoCircle className="text-2xl text-red-800" />
+                    <Link to={`/books/delete/${book.id}`}>
+                      <MdOutlineDelete className="text-2xl text-red-800" />
                     </Link>
                   </div>
                 </td>
-              </tr>;
-            })}
+              </tr>
+            ))}
           </tbody>
         </table>
       )}
