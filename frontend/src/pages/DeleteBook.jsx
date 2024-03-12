@@ -1,12 +1,12 @@
 import React from "react";
 
-const ShowBooks = () => {
+const DeleteBook = () => {
   return (
     <div>
-      ShowBooks
+      DeleteBook
     </div>
   );
 };
 
 
-export default ShowBooks;
+export default DeleteBook;

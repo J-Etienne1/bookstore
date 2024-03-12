@@ -1,12 +1,12 @@
 import React from "react";
 
-const EditBooks = () => {
+const EditBook = () => {
   return (
     <div>
-      EditBooks
+      EditBook
     </div>
   );
 };
 
 
-export default EditBooks;
+export default EditBook;
