@@ -16,16 +16,16 @@ app.get("/", (request, response) => {
 
 // Middleware for handling CORS
 // Option 1: Allow All Origins with default of cors(*)
-//app.use(cors());
+app.use(cors());
 
 // Option 2: Allow Custom Origins
-app.use(
+/* app.use(
   cors({
     origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
-);
+); */
 
 // Routes
 app.use("/books", booksRoute);
