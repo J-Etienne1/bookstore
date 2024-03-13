@@ -5,7 +5,6 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 
 
-
 const ShowBook = () => {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
@@ -23,7 +22,9 @@ const ShowBook = () => {
         console.log(error);
         setLoading(false);
       });
-  }, [id]);
+  }, [id]); // Make sure to add id as a dependency
+
+  console.log('Book:', book); // Log the book object
 
   return (
     <div className='p-4'>
@@ -40,6 +41,7 @@ const ShowBook = () => {
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Title</span>
             <span>{book.title}</span>
+            {console.log('Title:', book.title)} {/* Log the book title */}
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Author</span>
